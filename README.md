@@ -53,7 +53,7 @@
 * **メモリ最適化**
   * `Flyweight パターン`: `UItemDataAsset` 等による不変データの共有
   * `ソフトポインタ（Soft Pointer）` | `アセットID`: 非同期ロードによるメモリフットプリント削減
-  * `ウィークポインタ（Weak Pointer）`: 生存期間の異なるオブジェクト間の循環参照・クラッシュ防止
+  * `ウィークポインタ（Weak Pointer）`: 生存期間の異なるオブジェクト間の循環参照防止
 
 * **StateTreeによるAI意思決定**
   * `StateTree` | `Native Evaluators (C++)` | `AI Perception`
@@ -346,17 +346,41 @@ classDiagram
 ### **🎒 インベントリ＆装備システム（Inventory & Equipment System）**
 * #### **⏳ シーケンス図（Sequence Diagram）（Client Side）**
 [⬆ 本文へ戻る](#2--fast-array-serializer-を用いたインベントリ同期-inventory-replication) ・ [⬆ トップへ戻る](#ue5--cマルチプレイアクションゲーム-技術実証プロトタイプ-gas--mvvm--statetree--fastarrayserializer)
+
 ```mermaid
+%%{init: {
+  'theme': 'dark',
+  'themeVariables': {
+    'darkMode': true,
+    'background': '#0d1117',
+    'primaryColor': '#1f2937',
+    'primaryTextColor': '#f0f6fc',
+    'primaryBorderColor': '#30363d',
+    'actorLineColor': '#8b949e',
+    'actorTextColor': '#f0f6fc',
+    'signalColor': '#58a6ff',
+    'signalTextColor': '#f0f6fc',
+    'labelBoxBkgColor': '#161b22',
+    'labelBoxBorderColor': '#30363d',
+    'labelTextColor': '#f0f6fc',
+    'loopTextColor': '#f0f6fc',
+    'noteBkgColor': '#262c36',
+    'noteBorderColor': '#388bfd',
+    'noteTextColor': '#f0f6fc',
+    'boxBkgColor': '#161b22',
+    'boxTextColor': '#7d8590'
+  }
+} }%%
 sequenceDiagram
     autonumber
 
-    box rgb(235, 245, 255) Client Side
+    box rgb(18, 38, 58) Client Side
         participant VM as UVM_InventorySlot
         participant C_Char as AMyCharacter (Client)
         participant C_Inv as UInventoryComponent (Client)
     end
 
-    box rgb(255, 240, 230) Server Side
+    box rgb(48, 30, 20) Server Side
         participant S_Char as AMyCharacter (Server)
         participant S_Inv as UInventoryComponent (Server)
         
@@ -376,7 +400,7 @@ sequenceDiagram
 
     %% 6-8. Server Side Operations
     Note over S_Char, S_Inv: Server Execution & Processing
-    opt 6. If weapon already equipped
+    opt 6. If any weapon is already equipped
         S_Char->>S_Char: ServerUnequipWeapon()
     end
 
