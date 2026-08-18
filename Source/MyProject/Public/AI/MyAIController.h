@@ -27,7 +27,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setup|AI")
 	FGenericTeamId TeamID = 1;
 	
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UStateTreeComponent> StateTreeComponent;
 	
 	UPROPERTY(VisibleAnywhere)

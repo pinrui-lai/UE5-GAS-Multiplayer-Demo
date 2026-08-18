@@ -25,9 +25,12 @@ namespace  MyGameplayTags
 	
 	
 	/** 
-	 * StateTree 
+	 * State Tree 
 	 */
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(StateTree_Event_AbilityEnd)
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(StateTree_Event_EnterEngage)
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(StateTree_Event_LeaveEngage)
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(StateTree_Event_EnterSearch)
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(StateTree_Event_LeaveSearch)
 	
 	
 	/**

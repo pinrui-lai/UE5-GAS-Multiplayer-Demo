@@ -8,6 +8,7 @@
 #include "Interaction/EnemyInterface.h"
 #include "Interaction/PlayerInterface.h"
 #include "Net/UnrealNetwork.h"
+#include "Perception/AISense_Damage.h"
 
 void UMyAttributeSet::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const
 {
@@ -93,6 +94,18 @@ void UMyAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModC
 		 */
 		const float LocalIncomingDamage = GetIncomingDamage();
 		SetIncomingDamage(0.f);
+		
+		if (SourceActor && Data.Target.GetAvatarActor())
+		{
+			UAISense_Damage::ReportDamageEvent(
+				GetWorld(),
+				Data.Target.GetAvatarActor(),
+				SourceActor,
+				LocalIncomingDamage,
+				SourceActor->GetActorLocation(),
+				Data.Target.GetAvatarActor()->GetActorLocation()
+			);
+		}
 		
 		if (LocalIncomingDamage > 0.f)
 		{

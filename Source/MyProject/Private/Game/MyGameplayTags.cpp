@@ -13,12 +13,21 @@ namespace MyGameplayTags
 	
 	/** 
 	 * Event 
-	*/
+	 */
 	UE_DEFINE_GAMEPLAY_TAG(Event_Ability_Lifecycle_End, "Event.Ability.Lifecycle.End")
 	UE_DEFINE_GAMEPLAY_TAG(Event_WeaponAbility, "Event.WeaponAbility")
 	UE_DEFINE_GAMEPLAY_TAG(Event_CounterSucceed, "Event.CounterSucceed")
 	UE_DEFINE_GAMEPLAY_TAG(Event_BeCountered, "Event.BeCountered")
 	UE_DEFINE_GAMEPLAY_TAG(Event_BeHit, "Event.BeHit")
+	
+	
+	/** 
+	 * State Tree 
+	 */
+	UE_DEFINE_GAMEPLAY_TAG(StateTree_Event_EnterEngage, "StateTree.Event.EnterEngage")
+	UE_DEFINE_GAMEPLAY_TAG(StateTree_Event_LeaveEngage, "StateTree.Event.LeaveEngage")
+	UE_DEFINE_GAMEPLAY_TAG(StateTree_Event_EnterSearch, "StateTree.Event.EnterSearch")
+	UE_DEFINE_GAMEPLAY_TAG(StateTree_Event_LeaveSearch, "StateTree.Event.LeaveSearch")
 	
 	
 	/**

@@ -12,6 +12,11 @@ struct FTargetAngleEvaluatorInstanceData
 {
 	GENERATED_BODY()
 	
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	float TickInterval = 0.2f;
+	
+	float TimeAccumulator = 0.0f;
+	
 	// Will be set by AIPerceptionComponent
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<AActor> DetectedActor = nullptr;
